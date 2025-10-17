@@ -15,7 +15,7 @@ ARQUIVO_RELATORIO = "pedidos.csv"
 
 # Doces unitários avulsos
 DOCES_UNITARIOS = {
-    "Brigadeiro (unidade)": 2.00,
+    "Brigadeiro (unidade)": 25.00,
     "Bem casado (unidade)": 2.00,
     "Brigadeiro de Palha de Ninho com Oreo (unidade)": 2.00,
     "Palha Italiana de Ninho com Oreo (unidade)": 5.00,  # Novo doce avulso
@@ -116,6 +116,8 @@ if st.button("✅ Finalizar Pedido"):
 st.markdown("---")
 st.header("📋 Relatório de Pedidos")
 
+total_df = pd.DataFrame(columns=["Doce", "Total de unidades pedido"])
+
 if os.path.exists(ARQUIVO_RELATORIO):
     df = pd.read_csv(ARQUIVO_RELATORIO)
     st.dataframe(df, use_container_width=True)
@@ -141,27 +143,31 @@ if os.path.exists(ARQUIVO_RELATORIO):
     st.subheader("🍭 Totais por tipo de doce (incluindo caixas):")
     total_df = pd.DataFrame([{"Doce": d, "Total de unidades pedido": q} for d, q in totais.items()])
     st.table(total_df)
+
+    # Botão para baixar o relatório de totais
+    st.download_button(
+        label="💾 Baixar Totais por tipo de doce",
+        data=total_df.to_csv(index=False).encode("utf-8"),
+        file_name="totais_doces.csv",
+        mime="text/csv"
+    )
+
+
 else:
     st.info("Nenhum pedido foi registrado ainda.")
 
-# Botão para baixar o relatório de totais
-st.download_button(
-    label="💾 Baixar Totais por tipo de doce",
-    data=total_df.to_csv(index=False).encode("utf-8"),
-    file_name="totais_doces.csv",
-    mime="text/csv"
-)
+
 
 
 # ==============================
 # BOTÃO PARA LIMPAR PEDIDOS
 # ==============================
-if os.path.exists(ARQUIVO_RELATORIO):
-    st.markdown("---")
-    if st.button("🗑️ Limpar todos os pedidos"):
-        os.remove(ARQUIVO_RELATORIO)
-        st.warning("Todos os pedidos foram apagados com sucesso!")
-        st.stop()
+#if os.path.exists(ARQUIVO_RELATORIO):
+#    st.markdown("---")
+#    if st.button("🗑️ Limpar todos os pedidos"):
+#        os.remove(ARQUIVO_RELATORIO)
+#        st.warning("Todos os pedidos foram apagados com sucesso!")
+#        st.stop()
 
 
 if os.path.exists(ARQUIVO_RELATORIO):
