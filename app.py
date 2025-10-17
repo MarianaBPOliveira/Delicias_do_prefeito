@@ -15,7 +15,7 @@ ARQUIVO_RELATORIO = "pedidos.csv"
 
 # Doces unitários avulsos
 DOCES_UNITARIOS = {
-    "Brigadeiro (unidade)": 25.00,
+    "Brigadeiro (unidade)": 2.00,
     "Bem casado (unidade)": 2.00,
     "Brigadeiro de Palha de Ninho com Oreo (unidade)": 2.00,
     "Palha Italiana de Ninho com Oreo (unidade)": 5.00,  # Novo doce avulso
@@ -162,12 +162,12 @@ else:
 # ==============================
 # BOTÃO PARA LIMPAR PEDIDOS
 # ==============================
-#if os.path.exists(ARQUIVO_RELATORIO):
-#    st.markdown("---")
-#    if st.button("🗑️ Limpar todos os pedidos"):
-#        os.remove(ARQUIVO_RELATORIO)
-#        st.warning("Todos os pedidos foram apagados com sucesso!")
-#        st.stop()
+if os.path.exists(ARQUIVO_RELATORIO):
+    st.markdown("---")
+    if st.button("🗑️ Limpar todos os pedidos"):
+        os.remove(ARQUIVO_RELATORIO)
+        st.warning("Todos os pedidos foram apagados com sucesso!")
+        st.stop()
 
 
 if os.path.exists(ARQUIVO_RELATORIO):
