@@ -17,14 +17,17 @@ ARQUIVO_RELATORIO = "pedidos.csv"
 DOCES_UNITARIOS = {
     "Brigadeiro (unidade)": 2.00,
     "Bem casado (unidade)": 2.00,
+    "Docinho de Paçoca": 2.00,
     "Brigadeiro de Palha de Ninho com Oreo (unidade)": 2.00,
     "Palha Italiana de Ninho com Oreo (unidade)": 5.00,  # Novo doce avulso
+    "Salgadinho de queijo": 5.00,
 }
 
 # Doces que podem ir na caixa
 DOCES_CAIXA = {
     "Brigadeiro (unidade)": 2.00,
     "Bem casado (unidade)": 2.00,
+    "Docinho de Paçoca": 2.00,
     "Brigadeiro de Palha de Ninho com Oreo (unidade)": 2.00,
 }
 
