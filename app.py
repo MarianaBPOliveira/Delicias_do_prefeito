@@ -166,7 +166,7 @@ else:
 # BOTÃO PARA LIMPAR PEDIDOS
 # ==============================
 #if os.path.exists(ARQUIVO_RELATORIO):
-#    st.markdown("---")
+#st.markdown("---")
 #    if st.button("🗑️ Limpar TODOS os pedidos"):
 #        os.remove(ARQUIVO_RELATORIO)
 #        st.warning("Todos os pedidos foram apagados com sucesso!")
